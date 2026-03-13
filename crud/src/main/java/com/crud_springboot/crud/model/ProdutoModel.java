@@ -1,5 +1,6 @@
 package com.crud_springboot.crud.model;
 
+import com.crud_springboot.crud.enuns.ProdutoEnum;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,15 +13,17 @@ public class ProdutoModel {
     String nome;
     Double preco;
     Integer quantidadeEmEstoque;
+    private ProdutoEnum produtoEnum;
 
     public ProdutoModel() {
     }
 
-    public ProdutoModel(Long id, String nome, Double preco, Integer quantidadeEmEstoque) {
+    public ProdutoModel(Long id, String nome, Double preco, Integer quantidadeEmEstoque, ProdutoEnum produtoEnum) {
         this.id = id;
         this.nome = nome;
         this.preco = preco;
         this.quantidadeEmEstoque = quantidadeEmEstoque;
+        this.produtoEnum = produtoEnum;
     }
 
     public Long getId() {
@@ -53,5 +56,13 @@ public class ProdutoModel {
 
     public void setQuantidadeEmEstoque(Integer quantidadeEmEstoque) {
         this.quantidadeEmEstoque = quantidadeEmEstoque;
+    }
+
+    public ProdutoEnum getProdutoEnum() {
+        return produtoEnum;
+    }
+
+    public void setProdutoEnum(ProdutoEnum produtoEnum) {
+        this.produtoEnum = produtoEnum;
     }
 }
